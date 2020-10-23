@@ -11,7 +11,6 @@ class FizzBuzzMl():
     def __repr__(self):
         return '<FizzBuzz(int1={self.int1})>'.format(self=self)
 
-
 class FizzBuzzSm(Schema):
         int1 = fields.Int(strict=True)
         int2 = fields.Int(strict=True)

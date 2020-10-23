@@ -2,7 +2,6 @@ from flask_restful import Resource
 from flask import request, jsonify
 from app.logic.fizzbuzzLC import FizzBuzzLC
 from app.models.fizzbuzzML import FizzBuzzMl
-from app.data import dbManager
 
 class FizzBuzzEP(Resource):
     def post(self):
