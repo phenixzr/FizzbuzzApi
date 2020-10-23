@@ -1,2 +1,6 @@
 /__pycache__
 /env
+/data/__pycache__
+/endpoint/__pycache__
+/logic/__pycache__
+/model/__pycache__
