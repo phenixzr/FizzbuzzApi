@@ -1,6 +1,11 @@
 from flask_restful import Resource
-from flask import request
+from flask import jsonify
+from app.db.requests import getTopUsersRequests
 
 class MetricsEP(Resource):
-    def post(self):
-        return request.json, 200  # return data and 200 OK code
+    def get(self):
+        numOfRequest,mostRequested = getTopUsersRequests()
+        if mostRequested == None or numOfRequest == None:
+            return {'result' : None}
+        else:
+            return {'count' : numOfRequest, 'request' : mostRequested.serialize()}
