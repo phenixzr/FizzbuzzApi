@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields
-from app.extensions import db
+from FizzbuzzApi import db
 
-class FizzBuzzDb(db.Model):
+class FizzBuzzML(db.Model):
     __tablename__ = 'fizzbuzz'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -30,20 +30,11 @@ class FizzBuzzDb(db.Model):
             , 'str2' : self.str2
         }
 
-class FizzBuzzMl():
-    def __init__(self, int1, int2, mlimit, str1, str2):
-        self.int1 = int1
-        self.int2 = int2
-        self.mlimit = mlimit
-        self.str1 = str1
-        self.str2 = str2
-    
-    def __repr__(self):
-        return '<FizzBuzz(int1={self.int1})>'.format(self=self)
-
-class FizzBuzzSm(Schema):
+""" 
+To use with Marshamallow
+    class FizzBuzzSm(Schema):
         int1 = fields.Int(strict=True)
         int2 = fields.Int(strict=True)
         mlimit = fields.Int(strict=True)
         str1 = fields.Str(strict=True)
-        str2 = fields.Str(strict=True)
+        str2 = fields.Str(strict=True) """

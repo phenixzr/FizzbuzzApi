@@ -1,4 +1,9 @@
-step = 1
+from FizzbuzzApi import app
+
+step = app.config.get('STEP')
+if step == None or step == 0:
+    step = 1
+
 class FizzBuzzLC():
     def compute(fzQuery):
         res = []
