@@ -6,8 +6,6 @@ from FizzbuzzApi.database.fizzBuzzRQ import FizzBuzzRQ
 
 class FizzBuzzEP(Resource):
     def post(self):
-        #TODO verfication of input
-            
         #insert into db
         FizzBuzzRQ.insertUsersRequest(request)
 
@@ -15,4 +13,9 @@ class FizzBuzzEP(Resource):
         fzquery = FizzBuzzML(request.args.get('int1', 0, int), request.args.get('int2', 0, int)
         , request.args.get('limit', 0, int), request.args.get('str1', 'fizz', str), request.args.get('str2', 'buzz', str))
 
-        return jsonify(FizzBuzzLC.compute(fzquery))
+        fzlogic = FizzBuzzLC()
+        success, result, errStr = fzlogic.compute(fzquery)
+        if success :
+            return {'success': success, 'result': result}, 200
+        else:
+            return {'success': success, 'error': errStr}, 400
