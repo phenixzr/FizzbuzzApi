@@ -10,4 +10,4 @@ install:
 script:
   - nose2 -v
 after_success:
-  - coverage run -m unittest && coverage report
+  - coverage run -m unittest -v && coverage report && bash <(curl -s https://codecov.io/bash)
