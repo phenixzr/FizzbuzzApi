@@ -3,13 +3,13 @@ from sqlalchemy import func
 from FizzbuzzApi.models.fizzbuzzML import FizzBuzzML
 
 class FizzBuzzRQ():
-    def insertUsersRequest(request):
-        fzquerydb = FizzBuzzML(int1=request.args.get('int1', 0, int)
-            , int2=request.args.get('int2', 0, int)
-            , mlimit=request.args.get('limit', 0, int)
-            , str1=request.args.get('str1', 'fizz', str)
-            , str2=request.args.get('str2', 'buzz', str))
-        db.session.add(fzquerydb) 
+    def insertUsersRequest(self, request):
+        fzquerydb = FizzBuzzML(int1=request.int1
+            , int2=request.int2
+            , mlimit=request.mlimit
+            , str1=request.str1
+            , str2=request.str2)
+        db.session.add(fzquerydb)
         db.session.commit()
 
 #select count(*) as cnt,int1,int2,mlimit,str1,str2 
@@ -17,7 +17,7 @@ class FizzBuzzRQ():
 # group by int1,int2,mlimit,str1,str2 
 # order by cnt 
 # desc limit 1;
-    def getTopUsersRequests():
+    def getTopUsersRequests(self):
         cnt = func.count('*')
         result = db.session.query(cnt, FizzBuzzML.int1, FizzBuzzML.int2, FizzBuzzML.mlimit, FizzBuzzML.str1, FizzBuzzML.str2).\
                                 group_by(FizzBuzzML.int1, FizzBuzzML.int2, FizzBuzzML.mlimit, FizzBuzzML.str1, FizzBuzzML.str2).\

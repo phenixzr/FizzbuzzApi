@@ -1,10 +1,10 @@
-from marshmallow import Schema, fields
 from FizzbuzzApi import db
 
 class FizzBuzzML(db.Model):
     __tablename__ = 'fizzbuzz'
-
-    id = db.Column(db.Integer, primary_key=True)
+    
+    seq = db.Sequence('fizzbuzz_id_seq')
+    id = db.Column(db.Integer, seq ,primary_key=True)
     int1 = db.Column(db.Integer())
     int2 = db.Column(db.Integer())
     mlimit = db.Column(db.Integer())
@@ -29,12 +29,3 @@ class FizzBuzzML(db.Model):
             , 'str1' : self.str1
             , 'str2' : self.str2
         }
-
-""" 
-To use with Marshamallow
-    class FizzBuzzSm(Schema):
-        int1 = fields.Int(strict=True)
-        int2 = fields.Int(strict=True)
-        mlimit = fields.Int(strict=True)
-        str1 = fields.Str(strict=True)
-        str2 = fields.Str(strict=True) """

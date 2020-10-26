@@ -6,16 +6,16 @@ from FizzbuzzApi.database.fizzBuzzRQ import FizzBuzzRQ
 
 class FizzBuzzEP(Resource):
     def post(self):
-        #insert into db
-        FizzBuzzRQ.insertUsersRequest(request)
-
         # return result as json 
-        fzquery = FizzBuzzML(request.args.get('int1', 0, int), request.args.get('int2', 0, int)
-        , request.args.get('limit', 0, int), request.args.get('str1', 'fizz', str), request.args.get('str2', 'buzz', str))
-
+        fzquery = FizzBuzzML(request.args.get('int1', None, int), request.args.get('int2', None, int)
+        , request.args.get('limit', None, int), request.args.get('str1', None, str), request.args.get('str2', None, str))
         fzlogic = FizzBuzzLC()
         success, result, errStr = fzlogic.compute(fzquery)
+
         if success :
+            #insert into db
+            fzRq = FizzBuzzRQ()
+            fzRq.insertUsersRequest(fzquery)
             return {'success': success, 'result': result}, 200
         else:
             return {'success': success, 'error': errStr}, 400

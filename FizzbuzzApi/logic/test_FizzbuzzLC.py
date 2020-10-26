@@ -15,6 +15,34 @@ class FizzBuzzLCTest(unittest.TestCase):
         self.assertFalse(res)
         self.assertIsNotNone(errStr)
 
+    def test_isValidDataKoInt1None(self):
+        ml = FizzBuzzML(int1=None, int2=2, mlimit=10, str1='m3', str2='m5')
+        lc = FizzBuzzLC()
+        res, errStr = lc.isValidData(ml)
+        self.assertFalse(res)
+        self.assertIsNotNone(errStr)
+
+    def test_isValidDataKoInt2None(self):
+        ml = FizzBuzzML(int1=1, int2=None, mlimit=10, str1='m3', str2='m5')
+        lc = FizzBuzzLC()
+        res, errStr = lc.isValidData(ml)
+        self.assertFalse(res)
+        self.assertIsNotNone(errStr)
+
+    def test_isValidDataKoInt1Int2None(self):
+        ml = FizzBuzzML(int1=None, int2=None, mlimit=10, str1='m3', str2='m5')
+        lc = FizzBuzzLC()
+        res, errStr = lc.isValidData(ml)
+        self.assertFalse(res)
+        self.assertIsNotNone(errStr)
+
+    def test_isValidDataKoMlimitNone(self):
+        ml = FizzBuzzML(int1=1, int2=2, mlimit=None, str1='m3', str2='m5')
+        lc = FizzBuzzLC()
+        res, errStr = lc.isValidData(ml)
+        self.assertFalse(res)
+        self.assertIsNotNone(errStr)
+
     def test_isValidDataKoInt1Neg(self):
         ml = FizzBuzzML(int1=-1, int2=2, mlimit=1, str1='m3', str2='m5')
         lc = FizzBuzzLC()

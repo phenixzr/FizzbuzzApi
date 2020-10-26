@@ -12,3 +12,9 @@ db = SQLAlchemy(app)
 
 # init api
 api = Api(app)
+
+from FizzbuzzApi.endpoints.fizzbuzzEP import FizzBuzzEP
+from FizzbuzzApi.endpoints.metricsEP import MetricsEP
+
+api.add_resource(FizzBuzzEP, '/v1/fizzbuzz')
+api.add_resource(MetricsEP, '/v1/metrics')

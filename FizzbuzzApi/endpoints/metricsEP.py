@@ -4,8 +4,9 @@ import os
 
 class MetricsEP(Resource):
     def get(self):
-        numOfRequest,mostRequested = FizzBuzzRQ.getTopUsersRequests()
+        fzRq = FizzBuzzRQ()
+        numOfRequest,mostRequested = fzRq.getTopUsersRequests()
         if mostRequested == None or numOfRequest == None:
-            return {'result' : None}
+            return {'count' : 0, 'request' : {}}
         else:
             return {'count' : numOfRequest, 'request' : mostRequested.serialize()}

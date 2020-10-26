@@ -9,12 +9,18 @@ class FizzBuzzLC():
         errStr = None
         res = False
 
-        if fzQuery.int1 > 0 \
-            and fzQuery.int2 > 0 and fzQuery.int2 != fzQuery.int1 \
-            and fzQuery.mlimit > 0 and fzQuery.mlimit > fzQuery.int1 and fzQuery.mlimit > fzQuery.int2 \
+        if fzQuery.int1 != None and fzQuery.int1 > 0 \
+            and fzQuery.int2 != None and fzQuery.int2 > 0 and fzQuery.int2 != fzQuery.int1 \
+            and fzQuery.mlimit != None and fzQuery.mlimit > 0 and fzQuery.mlimit > fzQuery.int1 and fzQuery.mlimit > fzQuery.int2 \
             and fzQuery.str1 != None and len(fzQuery.str1) > 0 \
             and fzQuery.str2 != None and len(fzQuery.str2) > 0:
             res = True
+        elif fzQuery.int1 == None:
+            errStr = "int1 must be set"
+        elif fzQuery.int2 == None:
+            errStr = "int2 must be set"
+        elif fzQuery.mlimit == None:
+            errStr = "mlimit must be set"
         elif fzQuery.int1 < 0: 
             errStr = "int1 must be greather than zero"
         elif fzQuery.int2 < 0 : 
@@ -30,7 +36,7 @@ class FizzBuzzLC():
         elif fzQuery.str2 == None or len(fzQuery.str2) == 0:
             errStr = "str2 must be a valid string"
         else :
-            errStr = "bad request, cant validate your query"    
+            errStr = "bad request, can't validate your query"    
         return res, errStr
 
     def processFizzbuzz(self, fzQuery):
