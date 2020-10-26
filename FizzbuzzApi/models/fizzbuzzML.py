@@ -17,9 +17,6 @@ class FizzBuzzML(db.Model):
         self.mlimit = mlimit
         self.str1 = str1
         self.str2 = str2
-
-    def __repr__(self):
-        return '<id {}>'.format(self.id)
     
     def serialize(self):
         return {

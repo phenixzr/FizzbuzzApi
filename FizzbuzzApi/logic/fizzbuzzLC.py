@@ -1,9 +1,5 @@
 from FizzbuzzApi import app
 
-step = app.config.get('STEP')
-if step == None or step == 0:
-    step = 1
-
 class FizzBuzzLC():
     def isValidData(self, fzQuery):
         errStr = None
@@ -41,6 +37,7 @@ class FizzBuzzLC():
 
     def processFizzbuzz(self, fzQuery):
         res = []
+        step = 1
         for i in range(1, fzQuery.mlimit + step, step):
             multipleofi1, multipleofi2 = i % fzQuery.int1 == 0, i % fzQuery.int2 == 0
             if multipleofi1 and multipleofi2 :
