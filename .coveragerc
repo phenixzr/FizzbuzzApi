@@ -2,3 +2,8 @@
 omit = 
     env/*
     *test_*
+
+[report]
+omit = 
+    env/*
+    *test_*
