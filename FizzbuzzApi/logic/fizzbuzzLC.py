@@ -1,7 +1,30 @@
+""" Contains the fizzbuzz logic
+
+This module contains the logic behind the fizzbuzz endpoint
+It validates the data and compute de fizzbuzz algorithm
+"""
+
 from FizzbuzzApi import app
 
 class FizzBuzzLC():
+    """ Fizzbuzz logic class
+
+    Class that holds all the logic used for valdating
+    and computing fizzbuz requested by users
+    """
+
     def isValidData(self, fzQuery):
+        """ Validates the user query
+        
+        This method check every fields been queryed
+
+        Args: 
+            fzQuery FizzbuzzML model that holds the user query
+
+        Returns: 
+            A tuple, True if fzQuery is valid and None, or False and the err string
+        """
+
         errStr = None
         res = False
 
@@ -36,6 +59,17 @@ class FizzBuzzLC():
         return res, errStr
 
     def processFizzbuzz(self, fzQuery):
+        """ Process fizzbuzz computation
+
+        Computes the fizzbuzz algorithm using the user query
+
+        Args: 
+            fzQuery FizzbuzzML model that holds the user query
+
+        Returns: 
+            A list of string containing the fizzbuzz
+        """
+
         res = []
         step = 1
         for i in range(1, fzQuery.mlimit + step, step):
@@ -50,7 +84,18 @@ class FizzBuzzLC():
                 res.append(i)
         return res
 
-    def compute(self, fzQuery):
+    def compute(self, fzQuery)
+        """ Validate and process the user query
+
+        Validates and computes the fizzbuzz algorithm using the user query
+
+        Args: 
+            fzQuery FizzbuzzML model that holds the user query
+
+        Returns: 
+            A tuple, a boolean defining if everything been ok, a fizzbuzz compute, an error string
+        """
+
         isValid, errStr = self.isValidData(fzQuery)
         if isValid:
             return True, self.processFizzbuzz(fzQuery), errStr

@@ -1,3 +1,7 @@
+""" Holds all the main resources
+    Creating all main resources and adding our routes
+"""
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api

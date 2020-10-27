@@ -1,9 +1,27 @@
+""" Contains database queryes
+
+This modules allow to query the database
+"""
+
 from FizzbuzzApi import db
 from sqlalchemy import func
 from FizzbuzzApi.models.fizzbuzzML import FizzBuzzML
 
 class FizzBuzzRQ():
+    """ FizzbuzzRQ class
+    
+    Class that holds our database requests
+    """
+
     def insertUsersRequest(self, request):
+    """ Inserts a new fizzbuzz query
+
+    Inserts a new row in fizzbuzz table, all required fields must be checked before
+
+    Args:
+        request: a FizzbuzzML model object that holds all user defined fields
+    """
+
         fzquerydb = FizzBuzzML(int1=request.int1
             , int2=request.int2
             , mlimit=request.mlimit
@@ -12,12 +30,16 @@ class FizzBuzzRQ():
         db.session.add(fzquerydb)
         db.session.commit()
 
-#select count(*) as cnt,int1,int2,mlimit,str1,str2 
-# from fizzbuzz 
-# group by int1,int2,mlimit,str1,str2 
-# order by cnt 
-# desc limit 1;
     def getTopUsersRequests(self):
+    """ Fetches the most frequent query done by users
+
+    check the fizzbuzz table to get the most frequent row
+
+    Returns:
+        A tuple containing, first :how many time the most queryed fizzbuzz had, 
+        second : what the most queryed fizzbuzz is
+    """
+
         cnt = func.count('*')
         result = db.session.query(cnt, FizzBuzzML.int1, FizzBuzzML.int2, FizzBuzzML.mlimit, FizzBuzzML.str1, FizzBuzzML.str2).\
                                 group_by(FizzBuzzML.int1, FizzBuzzML.int2, FizzBuzzML.mlimit, FizzBuzzML.str1, FizzBuzzML.str2).\
