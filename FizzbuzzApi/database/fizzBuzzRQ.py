@@ -14,13 +14,13 @@ class FizzBuzzRQ():
     """
 
     def insertUsersRequest(self, request):
-    """ Inserts a new fizzbuzz query
+        """ Inserts a new fizzbuzz query
 
-    Inserts a new row in fizzbuzz table, all required fields must be checked before
+        Inserts a new row in fizzbuzz table, all required fields must be checked before
 
-    Args:
-        request: a FizzbuzzML model object that holds all user defined fields
-    """
+        Args:
+            request: a FizzbuzzML model object that holds all user defined fields
+        """
 
         fzquerydb = FizzBuzzML(int1=request.int1
             , int2=request.int2
@@ -31,14 +31,14 @@ class FizzBuzzRQ():
         db.session.commit()
 
     def getTopUsersRequests(self):
-    """ Fetches the most frequent query done by users
+        """ Fetches the most frequent query done by users
 
-    check the fizzbuzz table to get the most frequent row
+        check the fizzbuzz table to get the most frequent row
 
-    Returns:
-        A tuple containing, first :how many time the most queryed fizzbuzz had, 
-        second : what the most queryed fizzbuzz is
-    """
+        Returns:
+            A tuple containing, first :how many time the most queryed fizzbuzz had, 
+            second : what the most queryed fizzbuzz is
+        """
 
         cnt = func.count('*')
         result = db.session.query(cnt, FizzBuzzML.int1, FizzBuzzML.int2, FizzBuzzML.mlimit, FizzBuzzML.str1, FizzBuzzML.str2).\

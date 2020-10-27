@@ -84,7 +84,7 @@ class FizzBuzzLC():
                 res.append(i)
         return res
 
-    def compute(self, fzQuery)
+    def compute(self, fzQuery):
         """ Validate and process the user query
 
         Validates and computes the fizzbuzz algorithm using the user query
