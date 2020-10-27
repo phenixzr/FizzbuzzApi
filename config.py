@@ -4,7 +4,7 @@ Holds environment specific configuration
 To apply a environment you have to specify APP_SETTINGS
 APP_SETTINGS must be a env variable.
 Exemple :
-    export APP_SETTINGS="config.TestConfig"
+export APP_SETTINGS="config.TestConfig"
 """
 
 import os
@@ -13,7 +13,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config(object):
     """ Config class definition
     
-    Base class that holds common configuration
+    Base class that holds common configuration 
     """
 
     DEBUG = False
