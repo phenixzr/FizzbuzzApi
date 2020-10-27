@@ -9,3 +9,4 @@ FizzbuzzApi/test.db
 .coverage
 /htmlcov
 /docs/build
+fizzbuzz.log

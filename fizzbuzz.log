@@ -572,3 +572,40 @@ INFO:root:add metrics route
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 128-654-923
 INFO:werkzeug:127.0.0.1 - - [27/Oct/2020 19:52:43] "[37mPOST /v1/fizzbuzz?int1=3&int2=5&limit=15&str1=fizz&str2=buzz HTTP/1.1[0m" 200 -
+INFO:root:Fizzbuzz api started...
+INFO:root:database connexion up
+INFO:root:swagger available
+INFO:root:add fizzbuzz route
+INFO:root:add metrics route
+INFO:root:Fizzbuzz api started...
+INFO:root:database connexion up
+INFO:root:swagger available
+INFO:root:add fizzbuzz route
+INFO:root:add metrics route
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR:root:Cannot read from database (sqlite3.OperationalError) no such table: fizzbuzz
+[SQL: INSERT INTO fizzbuzz (int1, int2, mlimit, str1, str2) VALUES (?, ?, ?, ?, ?)]
+[parameters: (3, 5, 15, 'fizz', 'buzz')]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+INFO:werkzeug:127.0.0.1 - - [27/Oct/2020 19:58:19] "[37mPOST /v1/fizzbuzz?int1=3&int2=5&limit=15&str1=fizz&str2=buzz HTTP/1.1[0m" 200 -
+ERROR:root:Cannot insert into database (sqlite3.OperationalError) no such table: fizzbuzz
+[SQL: SELECT count(?) AS count_1, fizzbuzz.int1 AS fizzbuzz_int1, fizzbuzz.int2 AS fizzbuzz_int2, fizzbuzz.mlimit AS fizzbuzz_mlimit, fizzbuzz.str1 AS fizzbuzz_str1, fizzbuzz.str2 AS fizzbuzz_str2 
+FROM fizzbuzz GROUP BY fizzbuzz.int1, fizzbuzz.int2, fizzbuzz.mlimit, fizzbuzz.str1, fizzbuzz.str2 ORDER BY count(?) DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('*', '*', 1, 0)]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+INFO:werkzeug:127.0.0.1 - - [27/Oct/2020 20:01:10] "[37mGET /v1/metrics HTTP/1.1[0m" 200 -
+ERROR:root:Cannot insert into database (sqlite3.OperationalError) no such table: fizzbuzz
+[SQL: SELECT count(?) AS count_1, fizzbuzz.int1 AS fizzbuzz_int1, fizzbuzz.int2 AS fizzbuzz_int2, fizzbuzz.mlimit AS fizzbuzz_mlimit, fizzbuzz.str1 AS fizzbuzz_str1, fizzbuzz.str2 AS fizzbuzz_str2 
+FROM fizzbuzz GROUP BY fizzbuzz.int1, fizzbuzz.int2, fizzbuzz.mlimit, fizzbuzz.str1, fizzbuzz.str2 ORDER BY count(?) DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('*', '*', 1, 0)]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+INFO:werkzeug:127.0.0.1 - - [27/Oct/2020 20:01:27] "[37mGET /v1/metrics HTTP/1.1[0m" 200 -
+INFO:root:Fizzbuzz api started...
+INFO:root:database connexion up
+INFO:root:swagger available
+INFO:root:add fizzbuzz route
+INFO:root:add metrics route
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:exiting fizzbuzz api

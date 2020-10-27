@@ -10,11 +10,15 @@
     Such as the range, multiples and those replacing words
 """
 
-from FizzbuzzApi import app
+from FizzbuzzApi import app, logging
+import atexit
 
+def exitHandler():
+    logging.info('exiting fizzbuzz api')
+    
 if __name__ == '__main__':
     """ Main function
         Called when lauching from console
     """
-
+    atexit.register(exitHandler)
     app.run()

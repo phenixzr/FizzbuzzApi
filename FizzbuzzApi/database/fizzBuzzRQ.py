@@ -33,7 +33,7 @@ class FizzBuzzRQ():
             db.session.add(fzquerydb)
             db.session.commit()
         except Exception as e:
-            logging.error('Cannot read from database {0}'.format(str(e)))
+            logging.error('Cannot insert into database {0}'.format(str(e)))
 
 
     def getTopUsersRequests(self):
@@ -58,5 +58,5 @@ class FizzBuzzRQ():
             else:
                 return None, None
         except Exception as e:
-            logging.error('Cannot insert into database {0}'.format(str(e)))
+            logging.error('Cannot read from database {0}'.format(str(e)))
             return None, None
