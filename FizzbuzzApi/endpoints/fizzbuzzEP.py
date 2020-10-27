@@ -73,8 +73,6 @@ class FizzBuzzEP(Resource):
         Returns the list of fizzbuzz processed
         """
         
-        #print(request.json['int1'])
-        # return result as json 
         fzquery = FizzBuzzML(request.args.get('int1', None, int), request.args.get('int2', None, int)
         , request.args.get('limit', None, int), request.args.get('str1', None, str), request.args.get('str2', None, str))
         fzlogic = FizzBuzzLC()

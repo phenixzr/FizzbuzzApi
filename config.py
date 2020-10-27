@@ -21,6 +21,7 @@ class Config(object):
     CSRF_ENABLED = True
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    LOG_FILE_NAME = "fizzbuzz.log"
 
 class ProductionConfig(Config):
     """ ProductionConfig class
