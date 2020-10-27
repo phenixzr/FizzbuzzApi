@@ -4,7 +4,6 @@ from FizzbuzzApi.logic.fizzbuzzLC import FizzBuzzLC
 from FizzbuzzApi.models.fizzbuzzML import FizzBuzzML
 from FizzbuzzApi.database.fizzBuzzRQ import FizzBuzzRQ
 
-@name_space.route("/v1/fizzbuzz")
 class FizzBuzzEP(Resource):
     def post(self):
         # return result as json 
