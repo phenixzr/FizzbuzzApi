@@ -7,3 +7,4 @@
 *.pyc
 FizzbuzzApi/test.db
 .coverage
+/htmlcov
