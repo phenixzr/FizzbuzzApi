@@ -1,4 +1,4 @@
-f2
+FizzbuzzApi
 ==
 
 .. toctree::
