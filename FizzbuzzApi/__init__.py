@@ -12,7 +12,6 @@ db = SQLAlchemy(app)
 
 # init api
 api = Api(app)
-name_space = Namespace('main', description='Main APIs')
 
 from FizzbuzzApi.endpoints.fizzbuzzEP import FizzBuzzEP
 from FizzbuzzApi.endpoints.metricsEP import MetricsEP
