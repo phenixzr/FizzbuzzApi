@@ -52,13 +52,13 @@ class FizzBuzzMLTest(unittest.TestCase):
 
     def test_serializeMLOk(self):
         ml = FizzBuzzML(int1=1, int2=2, mlimit=3, str1='un', str2='deux')
-        jsonToCompareTo = {'int1': 1, 'int2': 2, 'mlimit': 3, 'str1': 'un', 'str2': 'deux'}
+        jsonToCompareTo = {'int1': 1, 'int2': 2, 'limit': 3, 'str1': 'un', 'str2': 'deux'}
         jsonSerialized = ml.serialize()
         self.assertEqual(jsonToCompareTo, jsonSerialized)
 
     def test_serializeML(self):
         ml = FizzBuzzML(int1=1, int2=2, mlimit=4, str1='un', str2='deux')
-        jsonToCompareTo = {'int1': 1, 'int2': 2, 'mlimit': 4, 'str1': 'un', 'str2': 'deux'}
+        jsonToCompareTo = {'int1': 1, 'int2': 2, 'limit': 4, 'str1': 'un', 'str2': 'deux'}
         jsonSerialized = ml.serialize()
         self.assertEqual(jsonToCompareTo, jsonSerialized)
 

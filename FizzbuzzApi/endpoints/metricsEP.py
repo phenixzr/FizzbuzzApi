@@ -5,7 +5,7 @@ This module contains the endpoint code behind the metrics
 
 from flask_restful import Resource
 from FizzbuzzApi.database.fizzBuzzRQ import FizzBuzzRQ
-import os
+from FizzbuzzApi import swagger
 
 class MetricsEP(Resource):
     """ MetricsEp class
@@ -14,9 +14,18 @@ class MetricsEP(Resource):
     Only GET method is allowed
     """
 
+    @swagger.operation(
+        notes='Fetches the most used query by our users',
+        responseMessages=[
+            {
+              "code": 200
+            }
+          ]
+    )
     def get(self):
-        """ handler to GET method
-        Returns json formated result
+        """ Get the most used query
+
+        Returns the most queryed fizzbuzz request
         """
 
         fzRq = FizzBuzzRQ()

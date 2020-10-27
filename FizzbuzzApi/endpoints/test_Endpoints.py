@@ -59,7 +59,7 @@ class EndpointTest(unittest.TestCase):
         response = self.client.post('/v1/fizzbuzz?int1=3&int2=5&limi')
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.json['success'], False)
-        self.assertEqual(response.json['error'], 'mlimit must be set')
+        self.assertEqual(response.json['error'], 'limit must be set')
 
     def test_MetricsGetEmpty(self):
         response = self.client.get('/v1/metrics')
@@ -72,7 +72,7 @@ class EndpointTest(unittest.TestCase):
         response = self.client.get('/v1/metrics')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json['count'], 1)
-        self.assertEqual(response.json['request'], {'int1': 3, 'int2': 5, 'mlimit': 15, 'str1': 'fizz', 'str2': 'buzz'})
+        self.assertEqual(response.json['request'], {'int1': 3, 'int2': 5, 'limit': 15, 'str1': 'fizz', 'str2': 'buzz'})
         
     def test_MetricsGetTen(self):
         for i in range(10):
@@ -80,7 +80,7 @@ class EndpointTest(unittest.TestCase):
         response = self.client.get('/v1/metrics')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json['count'], 10)
-        self.assertEqual(response.json['request'], {'int1': 2, 'int2': 3, 'mlimit': 10, 'str1': 'test', 'str2': 'me'})
+        self.assertEqual(response.json['request'], {'int1': 2, 'int2': 3, 'limit': 10, 'str1': 'test', 'str2': 'me'})
 
     def test_MetricsPost(self):
         response = self.client.post('/v1/metrics')

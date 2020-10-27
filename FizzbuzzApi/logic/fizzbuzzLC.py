@@ -39,7 +39,7 @@ class FizzBuzzLC():
         elif fzQuery.int2 == None:
             errStr = "int2 must be set"
         elif fzQuery.mlimit == None:
-            errStr = "mlimit must be set"
+            errStr = "limit must be set"
         elif fzQuery.int1 < 0: 
             errStr = "int1 must be greather than zero"
         elif fzQuery.int2 < 0 : 

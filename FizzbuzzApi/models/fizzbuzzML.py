@@ -3,8 +3,9 @@
     Contains the fizzbuzz class model 
 """
 
-from FizzbuzzApi import db
+from FizzbuzzApi import db, swagger
 
+@swagger.model
 class FizzBuzzML(db.Model):
     """ Fizzbuzz model class
 
@@ -60,7 +61,7 @@ class FizzBuzzML(db.Model):
         return {
             'int1' : self.int1
             , 'int2' : self.int2
-            , 'mlimit' : self.mlimit
+            , 'limit' : self.mlimit
             , 'str1' : self.str1
             , 'str2' : self.str2
         }

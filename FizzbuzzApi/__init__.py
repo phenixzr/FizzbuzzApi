@@ -5,6 +5,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api
+from flask_restful_swagger import swagger
 import os
 
 # init context
@@ -15,7 +16,7 @@ app.config.from_object(os.environ['APP_SETTINGS'])
 db = SQLAlchemy(app)
 
 # init api
-api = Api(app)
+api = swagger.docs(Api(app), apiVersion='1.0')
 
 from FizzbuzzApi.endpoints.fizzbuzzEP import FizzBuzzEP
 from FizzbuzzApi.endpoints.metricsEP import MetricsEP
