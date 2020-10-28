@@ -34,6 +34,7 @@ class FizzBuzzRQ():
             db.session.commit()
         except Exception as e:
             logging.error('Cannot insert into database {0}'.format(str(e)))
+            return str(e) # only used in test
 
 
     def getTopUsersRequests(self):

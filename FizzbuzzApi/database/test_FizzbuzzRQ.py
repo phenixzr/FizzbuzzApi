@@ -76,7 +76,22 @@ class FizzbuzzRQTest(unittest.TestCase):
         fzRq = FizzBuzzRQ()
         num, rq = fzRq.getTopUsersRequests()
         self.assertEqual(num, None)
-        print(rq)
+    
+    def test_GetTopUsersRequestsDBDown(self):
+        fzapi.db.drop_all()
+        fzRq = FizzBuzzRQ()
+        num, rq = fzRq.getTopUsersRequests()
+        self.assertEqual(num, None)
+        self.assertEqual(rq, None)
+
+    def test_InsertUsersRequestDBDown(self):
+        fzapi.db.drop_all()
+        ml = FizzBuzzML(int1=1, int2=2, mlimit=3, str1='un', str2='deux')
+        fzRq = FizzBuzzRQ()
+        res = fzRq.insertUsersRequest(ml)
+        self.assertTrue('sqlite3.OperationalError' in res)
+        fzapi.db.session.rollback()
+
 
 if __name__ == "__main__":
     unittest.main()
