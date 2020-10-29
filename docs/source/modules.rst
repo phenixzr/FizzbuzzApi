@@ -1,5 +1,5 @@
-f2
-==
+fizzbuzzApi
+===========
 
 .. toctree::
    :maxdepth: 4
