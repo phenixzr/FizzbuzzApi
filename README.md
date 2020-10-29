@@ -72,6 +72,12 @@ pip3 install -r requirements.txt
 ```
 note: you are supose to do all previous command from my github soource root (where requirements.txt is)
 
+
+To finally launch the test, you just have to type:
+```
+APP_SETTINGS="config.TestingConfig" DATABASE_URL="sqlite:///test.db" nose2 -v
+```
+
 After your test is done you can clean your python virtualenv:
 
 to exit your venv just type:
@@ -82,11 +88,6 @@ deactivate
 to delete your venv simply delete the env directory:
 ```
 rm -rf env
-```
-
-To finally launch the test, you just have to type:
-```
-APP_SETTINGS="config.TestingConfig" DATABASE_URL="sqlite:///test.db" nose2 -v
 ```
 
 ### Built With
