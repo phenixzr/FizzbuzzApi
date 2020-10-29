@@ -86,14 +86,7 @@ rm -rf env
 
 To finally launch the test, you just have to type:
 ```
-nose2 -v
-```
-
-### End to end tests
-
-Tests are coming
-```
-Give an example
+APP_SETTINGS="config.TestingConfig" DATABASE_URL="sqlite:///test.db" nose2 -v
 ```
 
 ### Built With
