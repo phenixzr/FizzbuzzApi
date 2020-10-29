@@ -10,7 +10,7 @@ import os, logging
 
 # init context
 app = Flask(__name__)
-app.config.from_object(os.environ['APP_SETTINGS'])
+app.config.from_object(os.environ.get('APP_SETTINGS'))
 
 # init logging
 logging.basicConfig(filename=app.config.get('LOG_FILE_NAME', 'fizz.log'), level=logging.INFO)
