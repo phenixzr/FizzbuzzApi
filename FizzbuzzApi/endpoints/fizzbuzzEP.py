@@ -67,7 +67,7 @@ class FizzBuzzEP(Resource):
             }
           ]
     )
-    def post(self):
+    def get(self):
         """ Computes fizzbuzz algorithm
         
         Returns the list of fizzbuzz processed
