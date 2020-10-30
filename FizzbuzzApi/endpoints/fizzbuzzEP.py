@@ -14,7 +14,7 @@ class FizzBuzzEP(Resource):
     """ FizzBuzzEP class
 
     Class that handle users query behind '/v1/fizzbuzz'
-    Only POST method is allowed
+    Only GET method is allowed
     """
 
     @swagger.operation(
