@@ -22,7 +22,9 @@ class FizzBuzzLC():
             fzQuery FizzbuzzML model that holds the user query
 
         Returns: 
-            A tuple, True if fzQuery is valid and None, or False and the err string
+            A tuple, (True,None) when fzQuery is correct
+            (False, errStr) when fzQuery is wrong, errStr is a string explaining
+            more about the error
         """
 
         errStr = None

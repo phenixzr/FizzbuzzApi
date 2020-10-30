@@ -55,7 +55,10 @@ class FizzBuzzML(db.Model):
         seriliaze the class to be represented
 
         Returns: 
-            A json formated vision of the class
+            A json formated vision of the class formated as such:
+            { 'int1' : integer, 'int2' : integer,
+            'limit' : integer ,
+             'str1' : string, 'str2' : string}
         """
 
         return {
